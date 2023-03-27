@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0035)http://localhost:8080/recseePlayer/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>player</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    
+	<!--CSS-->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/player.css">
+
+	<!--JS-->
+    <script src="./RecSee 3rd API_files/jquery-2.1.3.min.js.다운로드"></script>
+    <script>
+    /*  http://10.62.130.119/recsee/interface/recsee_player.html?USERID=CCB0571&CALLID=006a02ecf6fe3d9a&RDATE=20200512 */
+ 	window.resizeTo(520,560);
+
+	var rc_player; 
+	var downType = 'null'; // 다운로드 권한 파라미터 (0: 미사용, 1: 사용)
+	$(function() {
+    	rc_player = new RecseePlayer({
+	             target 		: "#playerObj"	// 플레이어를 표출 할 target
+	            ,requestIp 		: "localhost"   // rsfft가 설치된 서버 ip
+	            ,http				: "http"
+        });
+    	
+    	var uniqueid='null'; //감성분석 스팟청취를 위한 초
+    	
+    	var SEQNO='null'; //콜키
+    	var callKey='null'; //콜키
+    	var mSEQNO='null'; //모바일 콜키
+    	var agendid='null'; //사번
+    	var sso='null'; //사번	
+    	var USERID='null';
+    	var CALLID='null';
+    	var RDATE ='null';
+    	var key ='null';
+    	var ext = 'null';
+    	var custPhone = 'null';
+    	var reqCode = 'null'; // 메리츠 부분저장 사용 코드 (1 : 메티스, 2. 스마트 플러스)
+    	
+   		var flag = "GS"
+   		var mobileFlag = "N";
+		if (mSEQNO != null && mSEQNO != 'null' && mSEQNO != '') {
+			mobileFlag = "Y";
+			callKey = mSEQNO;
+		} else if (SEQNO != null && SEQNO != 'null' && SEQNO != '') {
+			callKey = SEQNO;
+		}
+    	/* 
+    	 * UCS : 유세스 파트너스
+    	 * MRZ : 메리츠화재   
+    	*/
+    	var startPoint ='null';
+    	var startTime ='null';
+    	var endTime ='null';
+		/* 20200710 bella 추가 */
+    	var recVolume ='null';
+    	// GS홈쇼핑 wfm 연동 시 볼륨이 작다고해서 강제로 증폭시킴
+    	recVolume = "10";
+    	
+    	var listenId ='null';
+    	if (listenId == null || listenId == 'null' || listenId == '') {
+    		listenId = "Unknown";
+    	}
+    	var lang ='null';
+    	if (lang != null && lang != 'null' && lang == 'en') {
+    		lang = 'en';
+    	}
+    	
+    	if(callKey!=null && callKey!='null' && ext != null && ext != 'null' && ext != ''){
+    		rc_player.GSFileListen(callKey, recVolume, ext, custPhone); // callKey : 청취 , recVolume : 볼륨 증폭 , listenId : 이력 관리, lang : 이력 기록 언어 옵션   	
+    	}else if(callKey!=null && callKey!='null'){
+    		rc_player.FileListen(callKey,recVolume,listenId,lang,mobileFlag); // callKey : 청취 , recVolume : 볼륨 증폭 , listenId : 이력 관리, lang : 이력 기록 언어 옵션   	
+    	}else if(ext != null && ext != 'null') {
+    		rc_player.RealTimeListen(ext);    	
+    	}else if(uniqueid!=null && uniqueid!='null')
+    		rc_player.MariaFileListen(uniqueid);
+    	else if(callKey!=null && callKey!='null' && agendid!=null && agendid!='null' && sso!=null && sso!='null')
+    		rc_player.KyoboFileListen(callKey,agendid,sso); 
+    	else if(CALLID!=null && CALLID!='null' && RDATE!=null && RDATE!='null')
+    		rc_player.UCSFileListen(USERID,CALLID,RDATE)
+    	else if(key != null && key != 'null')
+    		rc_player.DirectFileListen(key);
+    	
+    	if(startPoint != null && startPoint !='null'){ 
+    		rc_player.stPoint(startPoint); 
+    	} 
+    	if(startTime != null && startTime !='null' && endTime != null && endTime !='null'){
+    		rc_player.sTeT(startTime, endTime); 
+    	}
+    });
+	</script>
+    <script src="./RecSee 3rd API_files/recsee_player.js.다운로드"></script><link rel="stylesheet" type="text/css" href="./RecSee 3rd API_files/common.css"><link rel="stylesheet" type="text/css" href="./RecSee 3rd API_files/normalize.css"><link rel="stylesheet" type="text/css" href="./RecSee 3rd API_files/player_common.css"><link rel="stylesheet" type="text/css" href="./RecSee 3rd API_files/images.css"><link rel="stylesheet" type="text/css" href="./RecSee 3rd API_files/HoldOn.css"><script type="text/javascript" src="./RecSee 3rd API_files/HoldOn.min.js.다운로드"></script>
+</head>
+<body>
+    <div class="modal ac">
+        <div id="playerObj" class="new-player clear-fix" style="z-index: 100;">
+            <div class="rplayer select_none" tabindex="-1">
+                <!-- Body -->
+                <div class="play_control_wrap select_none">
+                    <!-- Video Layer -->
+                    
+    
+                    <!-- Wave Layer -->
+                    <div class="player_wave audioWave player_rx">
+                        <div class="procTime">00:00:00</div>
+
+                        <div class="waveCanvasObj" style="display:none;"></div>
+
+                        <div class="waveObj" style="opacity: 1;">    
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            <div class="obj_key" data-dynamic="">
+                                <div class="obj_key_left">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                                <div class="obj_key_right">
+                                    <div class="obj_key_value"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    
+
+                    <div class="center_control">
+                        <div class="play_time">
+                            <div class="play_now_time select_none">
+                                <p id="playTime">00:00:00</p>
+                            </div>
+                        </div>
+                           <div class="player_control">
+                               <div class="play_bar"></div>
+                               <div class="play_value" style="width: 50%;"></div>
+                               <div class="play_location" style="left: 50%;"></div>
+                           </div>
+                              <div class="play_time">
+                            <div class="play_total_time select_none">
+                                <p id="totalTime">00:00:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Control Layer -->
+                    <div class="player_controller">
+                        <!-- Control Button -->
+                        <div class="left_contol">
+                            <div class="btn_group">
+                                <div class="btn_style btn_prev"></div>
+                                <div class="btn_style btn_next"></div>
+                                <div class="btn_style btn_start"></div>
+                                <div class="btn_style btn_stop"></div>
+
+                                <div class="btn_speed">
+                                    <input type="text" value="x1.0" readonly="readonly" onfocus="this.blur()">
+                                    <div class="speed_btn_wrap">
+                                        <button class="btn_style speed_plus">+</button>
+                                        <button class="btn_style speed_minus">-</button>
+                                        <button class="btn_style speed_init"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Volume Control -->
+                        <div class="right_control">
+                            <div class="audio_volume_control">
+                                <div class="icon_volume"></div>
+                                <div class="audio_volume volume_rx" style="display: block;">
+                                    <div class="volume_bar"></div>
+                                    <div class="volume_value" style="width: 50px;"></div>
+                                    <div class="volume_location" style="left: 50px;"></div>
+                                </div>
+                            </div>
+                           
+                            <div class="view_expand">
+                                <div class="btn_view btn_expand"></div>
+                            </div>
+                            <div class="view_reduce">
+                                <div class="btn_view btn_reduce"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- List Layer -->
+                    <div class="play_list select_none" style="display: none;">
+                        <!-- <img class="play_info_img" src="js/recsee_player/images/play_info_img.gif"/> -->
+                        <p class="play_info"><span data-lang-code="search.player.nowPlaying"></span></p>
+                        <p class="play_file_tit" title=""></p>
+                        <p class="play_file_info"></p>
+                        <div class="play_list_right">
+                            <div class="play_jump" style="display: none;">
+                                <input class="input_time inputFilter numberFilter timeFilter" type="text" maxlength="8">
+                                <button>이동</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Audio Object -->
+                    <div class="player_audio audio_rx">
+                        <audio style="display:none" controls="" autoplay="autoplay">
+                            <source type="audio/mp3">
+                        </audio>
+                    </div>
+                    <iframe name="rRecSectionSaveFrame" class="rRecSectionSaveFrame" src="./RecSee 3rd API_files/saved_resource.html" style="display:none;"></iframe>
+                    <iframe name="rDownloadFrame" class="rDownloadFrame" src="./RecSee 3rd API_files/saved_resource(1).html" style="display:none;"></iframe>
+                    <iframe name="rFileUploadFrame" class="rFileUploadFrame" style="display:none;" src="./RecSee 3rd API_files/saved_resource(2).html"></iframe>
+                    <form class="fileUploadForm" target="rFileUploadFrame" method="POST" enctype="multipart/form-data" style="display:none;">
+                        <input name="file" class="fileUpload" type="file" accept=".mp3,audio">
+                    </form>
+                    <input name="playFile" class="filePlay" type="file" accept=".mp3,audio" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

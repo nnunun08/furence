@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>녹취 관리</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <!-- GNB -->
+    <section class="GNB">
+        <div class="inner">
+            <div class="logo">
+                <a href="#" alt="logo">logo</a>
+            </div>
+
+            <ul class="menu">
+                <li class="ac">
+                    <a href="#">녹취관리</a>
+                </li>
+                <li>
+                    <a href="#">스크립트 관리</a>
+                </li>
+            </ul>
+
+            <div class="etc">
+                <p class="name">
+                    관리자
+                    <span>ADMIN</span>
+                    님
+                </p>
+                <a href="#" class="setting">
+                    setting
+                </a>
+                <a href="#" class="logout">
+                    logout
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER -->
+    <section class="filter">
+        <div class="inner clear-fix flexWrap">
+            <div class="filter-item float-left">
+                <label>녹취일자</label>
+                <div class="filter-form">
+                    <label class="input-date">
+                        <input type="date">
+                    </label>
+                    <label class="input-date">
+                        <input type="date">
+                    </label>
+                </div>
+            </div>
+            <div class="filter-item float-left">
+                <label>녹취시간</label>
+                <div class="filter-form">
+                    <input type="text" placeholder="시간(부터)">
+                    <input type="text" placeholder="시간(까지)">
+                    <select name="" id="">
+                        <option value="시간(부터)">시간(부터)</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="시간(부터)">시간(까지)</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-item float-left">
+                <label>조직</label>
+                <div class="filter-form">
+                    <input type="text" placeholder="지점명">
+                </div>
+            </div>
+            <div class="filter-item float-left">
+                <label>조직자</label>
+                <div class="filter-form">
+                    <input type="text" placeholder="조직자 행번">
+                    <input type="text" placeholder="조직자 명">
+                </div>
+            </div>
+            <div class="filter-item float-left">
+                <label>고객정보</label>
+                <div class="filter-form">
+                    <input type="text" placeholder="고객명">
+                </div>
+            </div>
+            <div class="filter-item float-left">
+                <label>기타</label>
+                <div class="filter-form">
+                    <input type="text" placeholder="녹취키">
+                </div>
+            </div>
+            <div class="filter-item float-left">
+                <label>상품정보</label>
+                <div class="filter-form">
+                    <select name="" id="">
+                        <option value="시간(부터)">시간(부터)</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                    </select>
+                    <input type="text" placeholder="상품코드">
+                    <input type="text" placeholder="상품명">
+                </div>
+            </div>
+
+            <div class="filter-item filter-btnWrap">
+                <button class="btn-black">검색</button>
+                <button class="btn-grey">검색조건초기화</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENTS -->
+    <section class="contents">
+        <div class="inner">
+
+            <div class="gridWrap">
+                <table class="grid">
+                    <colgroup>
+                        <col width="35px">
+                        <col width="90px">
+                        <col width="70px">
+                        <col width="*">
+                        <col width="70px">
+                        <col width="90px">
+                        <col width="70px">
+                        <col width="100px">
+                        <col width="*">
+                        <col width="*">
+                        <col width="*">
+                        <col width="*">
+                        <col width="140px">
+                        <col width="140px">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" onclick="toggle(this)">
+                            </th>
+                            <th>날짜</th>
+                            <th>시간</th>
+                            <th>상담사ID</th>
+                            <th>상담사명</th>
+                            <th>내선번호</th>
+                            <th>고객명</th>
+                            <th>고객전화번호</th>
+                            <th>콜타입</th>
+                            <th>대분류</th>
+                            <th>중분류</th>
+                            <th>소분류</th>
+                            <th>트레이스</th>
+                            <th>플레이리스트</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkbox">
+                            </td>
+                            <td>20201-08-09</td>
+                            <td>12:03:30</td>
+                            <td>woori0213</td>
+                            <td>박소현</td>
+                            <td>4947-1234</td>
+                            <td>이지훈</td>
+                            <td>010-1234-1234</td>
+                            <td>콜타입</td>
+                            <td>대분류</td>
+                            <td>중분류</td>
+                            <td>소분류</td>
+                            <td>트레이스</td>
+                            <td>플레이리스트</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkbox">
+                            </td>
+                            <td>20201-08-09</td>
+                            <td>12:03:30</td>
+                            <td>woori0213</td>
+                            <td>박소현</td>
+                            <td>4947-1234</td>
+                            <td>이지훈</td>
+                            <td>010-1234-1234</td>
+                            <td>콜타입</td>
+                            <td>대분류</td>
+                            <td>중분류</td>
+                            <td>소분류</td>
+                            <td>트레이스</td>
+                            <td>플레이리스트</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkbox">
+                            </td>
+                            <td>20201-08-09</td>
+                            <td>12:03:30</td>
+                            <td>woori0213</td>
+                            <td>박소현</td>
+                            <td>4947-1234</td>
+                            <td>이지훈</td>
+                            <td>010-1234-1234</td>
+                            <td>콜타입</td>
+                            <td>대분류</td>
+                            <td>중분류</td>
+                            <td>소분류</td>
+                            <td>트레이스</td>
+                            <td>플레이리스트</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkbox">
+                            </td>
+                            <td>20201-08-09</td>
+                            <td>12:03:30</td>
+                            <td>woori0213</td>
+                            <td>박소현</td>
+                            <td>4947-1234</td>
+                            <td>이지훈</td>
+                            <td>010-1234-1234</td>
+                            <td>콜타입</td>
+                            <td>대분류</td>
+                            <td>중분류</td>
+                            <td>소분류</td>
+                            <td>트레이스</td>
+                            <td>플레이리스트</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <script language="JavaScript">
+                    // 체크박스 전체선택
+                    function toggle(source) {
+                        checkboxes = document.getElementsByName('checkbox');
+                        for(var i=0, n=checkboxes.length;i<n;i++) {
+                            checkboxes[i].checked = source.checked;
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal ac">
+        <!-- modal에 ac 클래스 생성시 활성화됩니다. ac클래스 제거시 비활성화 됩니다. -->
+        <div class="modal-pop modal-recoding" style="width: 720px;">
+            <div class="modal-header">
+                <span class="tit">청취</span>
+                <a href="#" class="modal-close"></a>
+            </div>
+            <div class="modal-body">
+
+                <article>
+                    <h2>고객정보</h2>
+                    <div class="thumb-info clear-fix">
+                        <dl>
+                            <dt>고객명</dt>
+                            <dd>박지은</dd>
+                        </dl>
+                        <dl>
+                            <dt>고객성향등급</dt>
+                            <dd>공격투자형(1등급)</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품명</dt>
+                            <dd>KB스타골드특별자산투자신탁(금 파생형)</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품위험등급</dt>
+                            <dd>다소높은위험(3등급)</dd>
+                        </dl>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>녹취목록</h2>
+                    <div class="gridWrap" style="margin-bottom:16px">
+                        <table class="grid">
+                            <colgroup>
+                                <col width="35px">
+                                <col width="40px">
+                                <col width="150px">
+                                <col width="80px">
+                                <col width="90px">
+                                <col width="90px">
+                                <col width="*">
+                    
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" onclick="toggle(this)">
+                                    </th>
+                                    <th>No.</th>
+                                    <th style="text-align: left;">제목</th>
+                                    <th>재녹취 여부</th>
+                                    <th>날짜</th>
+                                    <th>녹취 시간</th>
+                                    <th>재녹취 사유</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="checkbox2">
+                                    </td>
+                                    <td>1</td>
+                                    <td style="text-align: left;">본인확인</td>
+                                    <td></td>
+                                    <td>2021-08-09</td>
+                                    <td>02:10:20</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="checkbox2">
+                                    </td>
+                                    <td>2</td>
+                                    <td style="text-align: left;">상품설명1</td>
+                                    <td><span class="need">여</span></td>
+                                    <td>2021-08-09</td>
+                                    <td>02:10:20</td>
+                                    <td>음질불량</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="checkbox2">
+                                    </td>
+                                    <td>2-1</td>
+                                    <td style="text-align: left;" class="depth-2">투자자 성향 분석</td>
+                                    <td></td>
+                                    <td>2021-08-09</td>
+                                    <td>02:10:20</td>
+                                    <td>음질불량</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="checkbox2">
+                                    </td>
+                                    <td>2-1</td>
+                                    <td style="text-align: left;" class="depth-2">상품 권유</td>
+                                    <td></td>
+                                    <td>2021-08-09</td>
+                                    <td>02:10:20</td>
+                                    <td>음질불량</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+                        <script language="JavaScript">
+                            // 체크박스 전체선택
+                            function toggle(source) {
+                                checkboxes = document.getElementsByName('checkbox2');
+                                for(var i=0, n=checkboxes.length;i<n;i++) {
+                                    checkboxes[i].checked = source.checked;
+                                }
+                            }
+                        </script>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>플레이어</h2>
+                    <span class="play_file">현재 재생 중인 파일: 20210809_녹취고지_104020.mp3</span>
+                    <div class="player">
+                        <div class="track">
+                            <div class="profile">
+                                <div class="profile-img"></div>
+                                <span class="profile-name">상담원</span>
+                            </div>
+                    
+                            <div class="waveObj" style="opacity: 1;">
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track">
+                            <div class="profile">
+                                <div class="profile-img"></div>
+                                <span class="profile-name">고객</span>
+                            </div>
+                    
+                            <div class="waveObj" style="opacity: 1;">
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                                <div class="obj_key" data-dynamic="">
+                                    <div class="obj_key_left">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                    <div class="obj_key_right">
+                                        <div class="obj_key_value"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="player_controller">
+                            <!-- Control Button -->
+                            <div class="left_contol">
+                                <div class="btn_group">
+                                    <div class="btn_style btn_prev"></div>
+                                    <div class="play_toggle on">
+                                        <div class="btn_style btn_start"></div>
+                                        <div class="btn_style btn_stop"></div>
+                                    </div>
+                                    <div class="btn_style btn_next"></div>
+                                    <div class="btn_speed">
+                                        <input type="text" value="x1.0" readonly="readonly" onfocus="this.blur()">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Play Bar -->
+                            <div class="center_control">
+                                <div class="play_time">
+                                    <div class="play_now_time select_none">
+                                        <p id="playTime">00:00:00</p>
+                                    </div>
+                                </div>
+                                   <div class="player_control">
+                                       <div class="play_bar"></div>
+                                       <div class="play_value" style="width: 0%;"></div>
+                                       <div class="play_location" style="left: 0%;"></div>
+                                   </div>
+                                      <div class="play_time">
+                                    <div class="play_total_time select_none">
+                                        <p id="totalTime">00:00:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Volume Control -->
+                            <div class="right_control">
+                                <div class="audio_volume_control">
+                                    <div class="icon_volume"></div>
+                                    <div class="audio_volume volume_rx" style="display: block;">
+                                        <div class="volume_bar"></div>
+                                        <div class="volume_value" style="width: 0%;"></div>
+                                        <div class="volume_location" style="left: 0%;"></div>
+                                    </div>
+                                </div>
+                    
+                                <div class="view_expand">
+                                    <div class="btn_view btn_expand"></div>
+                                </div>
+                                <div class="view_reduce">
+                                    <div class="btn_view btn_reduce"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="btn-wrap flex-r">
+                    <button class="btn-grey">재녹취</button>
+                    <button class="btn-primary">다음 녹취 듣기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
